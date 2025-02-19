@@ -2,6 +2,7 @@
     x:Class="DogeShell.Views.MainWindow"
     xmlns="https://github.com/avaloniaui"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:AvaloniaEdit="clr-namespace:AvaloniaEdit;assembly=AvaloniaEdit"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
     xmlns:vm="using:DogeShell.ViewModels"
@@ -16,10 +17,14 @@
         <vm:MainWindowViewModel />
     </Design.DataContext>
     <Grid Margin="12" ColumnDefinitions="auto,*">
+        <StackPanel>
+            <Button Command="{Binding HandleConnect}" Content="链接" />
+            <Button Command="{Binding SendCommand}" Content="发送" />
+        </StackPanel>
+
         <TextBlock
-            HorizontalAlignment="Center"
-            VerticalAlignment="Center"
-            Text="{Binding Greeting}" />
-        <TextBox Grid.Row="1" />
+            Grid.Column="1"
+            Text="{Binding Name}"
+            TextWrapping="WrapWithOverflow" />
     </Grid>
 </Window>
